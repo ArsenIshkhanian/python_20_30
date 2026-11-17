@@ -1,124 +1,124 @@
 # import msvcrt
-# import random
-# import readchar
+import random
+import readchar
 
-# n = int(input('Enter n: '))
-# monkey_emoji = '🐵'
-# monkey_row = random.randint(1, n)
-# monkey_column = random.randint(1, n)
-# banan= '🍌'
-# banan_row = random.randint(1, n)
-# banan_column = random.randint(1, n)
-# bomb= "💣"
-# bomb_row = random.randint(1, n)
-# bomb_column = random.randint(1, n)
-# zombi = "🧟"
-# zombi_row = random.randint(1, n)
-# zombi_column = random.randint(1, n)
-# score=0
-# life = 3 
-
-
-# while True:
-
-#     if monkey_row==banan_row and monkey_column==banan_column:
-#         score+=1
-#         banan_row = random.randint(1, n)
-#         banan_column = random.randint(1, n)
-
-#     elif score >= 3 and (monkey_row==bomb_row and monkey_column==bomb_column):
-#         life -= 1
-#         bomb_row = random.randint(1, n)
-#         bomb_column = random.randint(1, n)
-
-#     elif score >= 5 and (monkey_row==zombi_row and monkey_column==zombi_column):
-#         life -= 1
-#         zombi_row = random.randint(1, n)
-#         zombi_column = random.randint(1, n)
-
-#     for i in range(1, n+1):
-#         for j in range(1, n+1):
-#             if i == monkey_row and j == monkey_column:
-#                 print(monkey_emoji, end=' ')
-#             elif i == banan_row and j == banan_column:
-#                 print(banan, end=' ')
-#             elif (i == bomb_row and j == bomb_column) and score >= 3:
-#                 print(bomb, end=' ')
-#             elif (i == zombi_row and j == zombi_column) and score >= 5:
-#                 print(zombi, end=' ')
-#             else:
-#                 print('*', end='  ')
-#         print(' ')
-#     print(f'{monkey_emoji} | {monkey_row} | {monkey_column}')
+n = int(input('Enter n: '))
+monkey_emoji = '🐵'
+monkey_row = random.randint(1, n)
+monkey_column = random.randint(1, n)
+banan= '🍌'
+banan_row = random.randint(1, n)
+banan_column = random.randint(1, n)
+bomb= "💣"
+bomb_row = random.randint(1, n)
+bomb_column = random.randint(1, n)
+zombi = "🧟"
+zombi_row = random.randint(1, n)
+zombi_column = random.randint(1, n)
+score=0
+life = 3 
 
 
-#     print('W|S|A|D')
-#     print('Score:', score)
-#     print(f"Life: {life}")
-#     step = readchar.readchar()
-#     step = step.lower()
+while True:
 
-#     if step == 'w':
-#         if monkey_row == 1:
-#             monkey_row = n
-#         else:
-#             monkey_row -= 1
+    if monkey_row==banan_row and monkey_column==banan_column:
+        score+=1
+        banan_row = random.randint(1, n)
+        banan_column = random.randint(1, n)
 
-#     elif step == 's':
-#         if monkey_row == n:
-#             monkey_row = 1
-#         else:
-#             monkey_row += 1
+    elif score >= 3 and (monkey_row==bomb_row and monkey_column==bomb_column):
+        life -= 1
+        bomb_row = random.randint(1, n)
+        bomb_column = random.randint(1, n)
 
-#     elif step == 'a':
-#         if monkey_column == 1:
-#             monkey_column = n
-#         else:
-#             monkey_column -= 1
+    elif score >= 5 and (monkey_row==zombi_row and monkey_column==zombi_column):
+        life -= 1
+        zombi_row = random.randint(1, n)
+        zombi_column = random.randint(1, n)
 
-#     elif step == 'd':
-#         if monkey_column == n:
-#             monkey_column = 1
-#         else:
-#             monkey_column += 1
+    for i in range(1, n+1):
+        for j in range(1, n+1):
+            if i == monkey_row and j == monkey_column:
+                print(monkey_emoji, end=' ')
+            elif i == banan_row and j == banan_column:
+                print(banan, end=' ')
+            elif (i == bomb_row and j == bomb_column) and score >= 3:
+                print(bomb, end=' ')
+            elif (i == zombi_row and j == zombi_column) and score >= 5:
+                print(zombi, end=' ')
+            else:
+                print('*', end='  ')
+        print(' ')
+    print(f'{monkey_emoji} | {monkey_row} | {monkey_column}')
 
-#     if monkey_row == zombi_row and monkey_column == zombi_column and score >= 5:
-#         life -= 1
-#     if score >= 5:
-#         zombi_step = random.choice('awsd')
-#         if zombi_step == 'w':
-#             if zombi_row > 1:
-#                 zombi_row -= 1
-#             else:
-#                 print("kapiky chi karox durs gal xaxadashtic")
 
-#         elif zombi_step == 's':
-#             if zombi_row < n:
-#                 zombi_row += 1
-#             else:
-#                 print("kapiky chi karox durs gal xaxadashtic")
+    print('W|S|A|D')
+    print('Score:', score)
+    print(f"Life: {life}")
+    step = readchar.readkey()
+    step = step.lower()
 
-#         elif zombi_step == 'a':
-#             if zombi_column > 1:
-#                 zombi_column -= 1
-#             else:
-#                 print("kapiky chi karox durs gal xaxadashtic")
+    if step == 'w':
+        if monkey_row == 1:
+            monkey_row = n
+        else:
+            monkey_row -= 1
 
-#         elif zombi_step == 'd':
-#             if zombi_column < n:
-#                 zombi_column += 1
-#             else:
-#                 print("kapiky chi karox durs gal xaxadashtic")
+    elif step == 's':
+        if monkey_row == n:
+            monkey_row = 1
+        else:
+            monkey_row += 1
 
-#     if life==0: 
-#         print(f"Life: {life}")
-#         print("Game over")
-#         break
+    elif step == 'a':
+        if monkey_column == 1:
+            monkey_column = n
+        else:
+            monkey_column -= 1
 
-#     elif step == 'q':
-#         break
-#     else:
-#         print("sxal tvyal")
+    elif step == 'd':
+        if monkey_column == n:
+            monkey_column = 1
+        else:
+            monkey_column += 1
+
+    if monkey_row == zombi_row and monkey_column == zombi_column and score >= 5:
+        life -= 1
+    if score >= 5:
+        zombi_step = random.choice('awsd')
+        if zombi_step == 'w':
+            if zombi_row > 1:
+                zombi_row -= 1
+            else:
+                print("kapiky chi karox durs gal xaxadashtic")
+
+        elif zombi_step == 's':
+            if zombi_row < n:
+                zombi_row += 1
+            else:
+                print("kapiky chi karox durs gal xaxadashtic")
+
+        elif zombi_step == 'a':
+            if zombi_column > 1:
+                zombi_column -= 1
+            else:
+                print("kapiky chi karox durs gal xaxadashtic")
+
+        elif zombi_step == 'd':
+            if zombi_column < n:
+                zombi_column += 1
+            else:
+                print("kapiky chi karox durs gal xaxadashtic")
+
+    if life==0: 
+        print(f"Life: {life}")
+        print("Game over")
+        break
+
+    elif step == 'q':
+        break
+    else:
+        print("sxal tvyal")
 
 
 
